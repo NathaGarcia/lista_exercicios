@@ -90,17 +90,12 @@ public class Exercicio71 {
 }
 
 class Data71 {
-//    int dia = now().getDayOfMonth();
-//    int mes = now().getMonthValue();
-//    int ano = now().getYear();
-//    LocalDate data = now();
 
     int dia;
     int mes;
     int ano;
 
-    public Data71() {
-    }
+    public Data71() { }
 
     public Data71(String data) {
         int[] dataInt = converterToArray(data);
@@ -111,58 +106,48 @@ class Data71 {
         }
     }
 
-    public int getAno() {
-        return ano;
-    }
+    public int getAno() { return ano; }
 
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
+    public void setAno(int ano) { this.ano = ano; }
 
-    public int getMes() {
-        return mes;
-    }
+    public int getMes() { return mes; }
 
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
+    public void setMes(int mes) { this.mes = mes; }
 
-    public int getDia() {
-        return dia;
-    }
+    public int getDia() { return dia; }
 
-    public void setDia(int dia) {
-        this.dia = dia;
-    }
+    public void setDia(int dia) { this.dia = dia; }
 
     public boolean validarData(String dataString) {
         Calendar dataAtual = Calendar.getInstance();
+        int anoAtual = dataAtual.get(Calendar.YEAR);
         SimpleDateFormat df = new SimpleDateFormat("yyyy");
         int[] data = converterToArray(dataString);
 
+        int diaDaData = data[0];
+        int mesDaData = data[1];
         int anoDaData = data[2];
-        int anoAtual = dataAtual.get(Calendar.YEAR);
 
         if (anoAtual > 0 && anoDaData <= anoAtual) {//ano
-            switch (data[1]) { //mes
+            switch (mesDaData) { //mes
                 case 1,3,5,7,8,10,12:
 //                    System.out.println((data[0] > 0) && (data[0] <= 31));
-                    if((data[0]>0) && (data[0]<=31)) {
+                    if((diaDaData > 0) && (diaDaData <= 31)) {
                         return true;//dia
                     } else {
                         throw new IllegalArgumentException("DATA INVÁLIDA PARA MESES DE ATÉ 31 DIAS!!!");
                     }
 
                 case 2:
-                    if(data[2]%4==0) {//ano
-                        if ((data[0] > 0) && (data[0] <= 29)) {
+                    if(anoDaData %4 == 0) {//ano
+                        if ((diaDaData > 0) && (diaDaData <= 29)) {
                             return true;//dia
                         } else {
                             throw new IllegalArgumentException("DATA INVÁLIDA PARA O MÊS DE FEVEREIRO COM ATÉ 29 DIAS!!!");
                         }
 
                     } else {
-                        if ((data[0] > 0) && (data[0] <= 28)) {//dia
+                        if ((diaDaData > 0) && (diaDaData <= 28)) {//dia
                             return true;
                         } else {
                             throw new IllegalArgumentException("DATA INVÁLIDA PARA O MÊS DE FEVEREIRO COM ATÉ 28 DIAS!!!");
@@ -170,7 +155,7 @@ class Data71 {
                     }
 
                 case 4,6,9,11:
-                    if((data[0]>0) && (data[0]<=30)) {
+                    if((diaDaData > 0) && (diaDaData <= 30)) {
                         return true;//dia
                     } else {
                         throw new IllegalArgumentException("DATA INVÁLIDA PARA MESES DE ATÉ 30 DIAS!!!");
@@ -191,7 +176,6 @@ class Data71 {
         for (int i = 0; i < dataQuebrada.length; i++) {
             dataInt[i] = Integer.parseInt(dataQuebrada[i]);
         }
-
         return dataInt;
     }
 
@@ -266,11 +250,7 @@ class Aluno71 extends Pessoa71 {
         this.ra = ra;
     }
 
-    public Data71 getDataMatricula() {
-        return dataMatricula;
-
-    }
-
+    public Data71 getDataMatricula() { return dataMatricula; }
 
     @Override
     public String toString() {
@@ -290,9 +270,7 @@ class Funcionario71 extends Pessoa71 {
     String funcao;
     Data71 dataAdmissao;
 
-    public Funcionario71() {
-        super();
-    }
+    public Funcionario71() { super(); }
 
     public Funcionario71(String nome, String rg, String dataNascimento, Double salario, String funcao, String dataAdmissao) {
         super(nome, rg, dataNascimento);

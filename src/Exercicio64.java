@@ -10,7 +10,7 @@ package src;
     → Devera ser implementado um metodo para realizar cada uma das opcoes de 1 a 6
  */
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Exercicio64 {
@@ -20,8 +20,8 @@ public class Exercicio64 {
         Scanner entrada = new Scanner(System.in);
         Vector vector = new Vector();
 
-        int encerrar = 0;
-        while (encerrar == 0) {
+        int encerrar = 1;
+        while (encerrar != 7) {
             System.out.println("- - - - - - - - - - - -\n" +
                     "Escolha uma opção:\n" +
                     "1 - Carregar vetor\n" +
@@ -61,47 +61,42 @@ public class Exercicio64 {
                     break;
 
             }
-            System.out.println("Deseja encerrar?\n[0]Não - [1]Sim");
-            encerrar = entrada.nextInt();
+            encerrar = opcao;
         }
     }
-
 }
 class Vector {
 
-    Integer[] vetor = {1,2,3,4,5};
-
+    ArrayList<Integer> vet = new ArrayList();
     void carregar(int numero) {
-        Integer[] copia = Arrays.copyOf(vetor, vetor.length + 1);
-        copia[copia.length - 1] = numero;
-        System.out.println(Arrays.toString(copia));
+        vet.add(numero);
 
     }
 
     void listar() {
-        System.out.println(Arrays.toString(vetor));
+        System.out.println(vet);
     }
 
     void exibirPar() {
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] % 2 == 0) {
-                System.out.println("Exibindo numeros pares: " + vetor[i]);
+        for (int i = 0; i < vet.size(); i++) {
+            if (vet.get(i) % 2 == 0) {
+                System.out.println("Exibindo numeros pares: " + vet.get(i));
             }
         }
     }
 
     void exibirImpar() {
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] % 2 == 1) {
-                System.out.println("Exibindo numeros ímpares: " + vetor[i]);
+        for (int i = 0; i < vet.size(); i++) {
+            if (vet.get(i) % 2 == 1) {
+                System.out.println("Exibindo numeros ímpares: " + vet.get(i));
             }
         }
     }
 
     void exibirQuantidadePares() {
         int contadorParesNasPosicoesImpares = 0;
-        for (int i = 1; i < vetor.length; i+=2) {
-            if (vetor[i] % 2 == 0) {
+        for (int i = 1; i < vet.size(); i+=2) {
+            if (vet.get(i) % 2 == 0) {
                 contadorParesNasPosicoesImpares++;
             }
         }
@@ -110,13 +105,11 @@ class Vector {
 
     void exibirQuantidadeImpares() {
         int contadorImparesNasPosicoesPares = 0;
-        for (int i = 0; i < vetor.length; i+=2) {
-            if (vetor[i] % 2 == 1) {
+        for (int i = 0; i < vet.size(); i+=2) {
+            if (vet.get(i) % 2 == 1) {
                 contadorImparesNasPosicoesPares++;
             }
         }
         System.out.println("Exibindo quantidade de numeros ímpares nas posições pares: " + contadorImparesNasPosicoesPares);
     }
-
-
 }

@@ -1,6 +1,7 @@
 package src;
 
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class Exercicio53 {
         quantidadeDeVoltas = entrada.nextInt();
         LocalTime menorTempoVolta = LocalTime.parse("00:59:59.999", DateTimeFormatter.ofPattern("HH:mm:ss.nnn"));
         LocalTime maiorTempoVolta = LocalTime.parse("00:00:00.000", DateTimeFormatter.ofPattern("HH:mm:ss.nnn"));
-        LocalTime tempoCadaVolta;
+        LocalTime tempoCadaVolta = LocalTime.parse("00:00:00.000", DateTimeFormatter.ofPattern("HH:mm:ss.nnn"));
         Calendar tempoMedio = Calendar.getInstance();
         SimpleDateFormat formato =  new SimpleDateFormat("HH:mm:ss.SSS");
         int numeroDaVolta = 1;
@@ -57,9 +58,6 @@ public class Exercicio53 {
         }
 
         //tempo medio das voltas
-
-
-
 
 
         System.out.println("Tempos: " + tempos);

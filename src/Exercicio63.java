@@ -1,7 +1,4 @@
 package src;
-/*  Escreva um programa que verifique se um numero é par ou impar atraves de um metodo chamdo VERIFICA. O metodo devera
-    receber um numero inteiro (n) e devera retornar a mensagem “PAR“ ou “IMPAR“
- */
 
 import java.util.Scanner;
 
@@ -23,7 +20,6 @@ public class Exercicio63 {
 
 class Numero {
     int numero;
-
 
     void verificaParImpar(int numero) {
         this.numero = numero;
